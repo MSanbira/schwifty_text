@@ -1,0 +1,109 @@
+:root {
+  --fir-bg-color: #355c7d;
+  --sec-bg-color: #6c5b7b;
+  --thr-bg-color: #c06c84;
+}
+
+.schwifty-text {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  width: 30em;
+  max-width: 100%;
+  background-color: var(--fir-bg-color);
+  box-shadow: inset 15em 0 5em -5em var(--thr-bg-color),
+    inset 25em 0 5em -5em var(--sec-bg-color);
+  animation: swipe-right 15s infinite linear;
+
+  &.s-width {
+    font-size: 15px;
+  }
+  &.m-width {
+    font-size: 30px;
+  }
+  &.l-width {
+    font-size: 60px;
+  }
+  &.xl-width {
+    font-size: 120px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    // must have to work
+    width: 100% !important;
+    background: white !important;
+    color: black !important;
+    mix-blend-mode: lighten !important;
+    margin: 0 !important;
+    height: 100% !important;
+
+    // defaults you can override
+    padding-bottom: 0.35em;
+    text-align: left;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+
+  h1 {
+    font-size: 64px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  h2 {
+    font-size: 32px;
+  }
+  h3 {
+    font-size: 24px;
+  }
+  h4 {
+    font-size: 24px;
+    font-weight: 300;
+  }
+  h5 {
+    font-size: 20px;
+  }
+  h6 {
+    font-size: 16px;
+    font-weight: 300;
+  }
+  p {
+    font-size: 16px;
+  }
+}
+
+@keyframes swipe-right {
+  0% {
+    box-shadow: inset 0 0 var(--thr-bg-color), inset 0 0 var(--sec-bg-color),
+      inset 0 0 var(--fir-bg-color), inset 15em 0 5em -5em var(--thr-bg-color),
+      inset 25em 0 5em -5em var(--sec-bg-color),
+      inset 30em 0 var(--fir-bg-color);
+  }
+
+  33% {
+    box-shadow: inset 0 0 var(--thr-bg-color), inset 0 0 var(--sec-bg-color),
+      inset 15em 0 5em -5em var(--fir-bg-color),
+      inset 25em 0 5em -5em var(--thr-bg-color),
+      inset 30em 0 var(--sec-bg-color), inset 30em 0 var(--fir-bg-color);
+  }
+
+  66% {
+    box-shadow: inset 0 0 var(--thr-bg-color),
+      inset 15em 0 5em -5em var(--sec-bg-color),
+      inset 25em 0 5em -5em var(--fir-bg-color),
+      inset 30em 0 var(--thr-bg-color), inset 30em 0 var(--sec-bg-color),
+      inset 30em 0 var(--fir-bg-color);
+  }
+
+  100% {
+    box-shadow: inset 15em 0 5em -5em var(--thr-bg-color),
+      inset 25em 0 5em -5em var(--sec-bg-color),
+      inset 30em 0 var(--fir-bg-color), inset 30em 0 var(--thr-bg-color),
+      inset 30em 0 var(--sec-bg-color), inset 30em 0 var(--fir-bg-color);
+  }
+}
