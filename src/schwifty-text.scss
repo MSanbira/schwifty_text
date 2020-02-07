@@ -1,10 +1,10 @@
 :root {
-  --schwifty-fir-bg-color: #355c7d;
-  --schwifty-sec-bg-color: #6c5b7b;
-  --schwifty-thr-bg-color: #c06c84;
+  --schwifty-fir-bg-color: #3b5249;
+  --schwifty-sec-bg-color: #457091;
+  --schwifty-thr-bg-color: #503b31;
 }
 
-.schwifty-text.schwifty-text.schwifty-text {
+.schwifty-text {
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 30px;
@@ -15,17 +15,52 @@
     inset 25em 0 5em -5em var(--schwifty-sec-bg-color);
   animation: schwifty-swipe-right 15s infinite linear;
 
-  &.s-width {
+  &.SWIF-s-w {
     font-size: 15px;
   }
-  &.m-width {
+  &.SWIF-m-w {
     font-size: 30px;
   }
-  &.l-width {
+  &.SWIF-l-w {
     font-size: 60px;
   }
-  &.xl-width {
+  &.SWIF-xl-w {
     font-size: 120px;
+  }
+
+  &.SWIF-s-fast {
+    animation-duration: 3s;
+  }
+  &.SWIF-fast {
+    animation-duration: 10s;
+  }
+  &.SWIF-normal {
+    animation-duration: 15s;
+  }
+  &.SWIF-slow {
+    animation-duration: 20s;
+  }
+
+  &.SWIF-reverse {
+    animation-direction: reverse;
+  }
+  &.SWIF-btn {
+    border-radius: 5px;
+    border: solid 2px transparent;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-size: 24px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      padding: 0.35em;
+    }
   }
 
   h1,
@@ -39,9 +74,9 @@
     // must have to work
     width: 100%;
     height: 100%;
-    background: white !important;
-    color: black !important;
-    mix-blend-mode: lighten !important;
+    background: white;
+    color: black;
+    mix-blend-mode: lighten;
     margin: 0 !important;
 
     // defaults you can override
@@ -53,7 +88,7 @@
   h1 {
     font-size: 64px;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 800;
   }
   h2 {
     font-size: 32px;
