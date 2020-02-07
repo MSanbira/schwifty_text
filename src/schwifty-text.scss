@@ -1,19 +1,19 @@
 :root {
-  --fir-bg-color: #355c7d;
-  --sec-bg-color: #6c5b7b;
-  --thr-bg-color: #c06c84;
+  --schwifty-fir-bg-color: #355c7d;
+  --schwifty-sec-bg-color: #6c5b7b;
+  --schwifty-thr-bg-color: #c06c84;
 }
 
-.schwifty-text {
+.schwifty-text.schwifty-text.schwifty-text {
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 30px;
   width: 30em;
   max-width: 100%;
-  background-color: var(--fir-bg-color);
-  box-shadow: inset 15em 0 5em -5em var(--thr-bg-color),
-    inset 25em 0 5em -5em var(--sec-bg-color);
-  animation: swipe-right 15s infinite linear;
+  background-color: var(--schwifty-fir-bg-color);
+  box-shadow: inset 15em 0 5em -5em var(--schwifty-thr-bg-color),
+    inset 25em 0 5em -5em var(--schwifty-sec-bg-color);
+  animation: schwifty-swipe-right 15s infinite linear;
 
   &.s-width {
     font-size: 15px;
@@ -34,20 +34,20 @@
   h4,
   h5,
   h6,
-  p {
+  p,
+  img {
     // must have to work
-    width: 100% !important;
+    width: 100%;
+    height: 100%;
     background: white !important;
     color: black !important;
     mix-blend-mode: lighten !important;
     margin: 0 !important;
-    height: 100% !important;
 
     // defaults you can override
     padding-bottom: 0.35em;
     text-align: left;
     font-weight: 500;
-    text-transform: capitalize;
   }
 
   h1 {
@@ -75,35 +75,48 @@
   p {
     font-size: 16px;
   }
+
+  img {
+    filter: grayscale(100%);
+    display: block;
+    padding: 0;
+  }
 }
 
-@keyframes swipe-right {
+@keyframes schwifty-swipe-right {
   0% {
-    box-shadow: inset 0 0 var(--thr-bg-color), inset 0 0 var(--sec-bg-color),
-      inset 0 0 var(--fir-bg-color), inset 15em 0 5em -5em var(--thr-bg-color),
-      inset 25em 0 5em -5em var(--sec-bg-color),
-      inset 30em 0 var(--fir-bg-color);
+    box-shadow: inset 0 0 var(--schwifty-thr-bg-color),
+      inset 0 0 var(--schwifty-sec-bg-color),
+      inset 0 0 var(--schwifty-fir-bg-color),
+      inset 15em 0 5em -5em var(--schwifty-thr-bg-color),
+      inset 25em 0 5em -5em var(--schwifty-sec-bg-color),
+      inset 30em 0 var(--schwifty-fir-bg-color);
   }
 
   33% {
-    box-shadow: inset 0 0 var(--thr-bg-color), inset 0 0 var(--sec-bg-color),
-      inset 15em 0 5em -5em var(--fir-bg-color),
-      inset 25em 0 5em -5em var(--thr-bg-color),
-      inset 30em 0 var(--sec-bg-color), inset 30em 0 var(--fir-bg-color);
+    box-shadow: inset 0 0 var(--schwifty-thr-bg-color),
+      inset 0 0 var(--schwifty-sec-bg-color),
+      inset 15em 0 5em -5em var(--schwifty-fir-bg-color),
+      inset 25em 0 5em -5em var(--schwifty-thr-bg-color),
+      inset 30em 0 var(--schwifty-sec-bg-color),
+      inset 30em 0 var(--schwifty-fir-bg-color);
   }
 
   66% {
-    box-shadow: inset 0 0 var(--thr-bg-color),
-      inset 15em 0 5em -5em var(--sec-bg-color),
-      inset 25em 0 5em -5em var(--fir-bg-color),
-      inset 30em 0 var(--thr-bg-color), inset 30em 0 var(--sec-bg-color),
-      inset 30em 0 var(--fir-bg-color);
+    box-shadow: inset 0 0 var(--schwifty-thr-bg-color),
+      inset 15em 0 5em -5em var(--schwifty-sec-bg-color),
+      inset 25em 0 5em -5em var(--schwifty-fir-bg-color),
+      inset 30em 0 var(--schwifty-thr-bg-color),
+      inset 30em 0 var(--schwifty-sec-bg-color),
+      inset 30em 0 var(--schwifty-fir-bg-color);
   }
 
   100% {
-    box-shadow: inset 15em 0 5em -5em var(--thr-bg-color),
-      inset 25em 0 5em -5em var(--sec-bg-color),
-      inset 30em 0 var(--fir-bg-color), inset 30em 0 var(--thr-bg-color),
-      inset 30em 0 var(--sec-bg-color), inset 30em 0 var(--fir-bg-color);
+    box-shadow: inset 15em 0 5em -5em var(--schwifty-thr-bg-color),
+      inset 25em 0 5em -5em var(--schwifty-sec-bg-color),
+      inset 30em 0 var(--schwifty-fir-bg-color),
+      inset 30em 0 var(--schwifty-thr-bg-color),
+      inset 30em 0 var(--schwifty-sec-bg-color),
+      inset 30em 0 var(--schwifty-fir-bg-color);
   }
 }
