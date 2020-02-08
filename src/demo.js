@@ -72,6 +72,7 @@ export default function Demo() {
           options={{ spacialElement: "btn" }}
           containerSize="s"
           style={{ width: "100%" }}
+          onClick={() => window.alert("You clicked!")}
         >
           press me
         </SchwiftyText>

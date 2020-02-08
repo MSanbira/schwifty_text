@@ -44,6 +44,18 @@
   &.SWIF-reverse {
     animation-direction: reverse;
   }
+  &.SWIF-inverse {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      color: white;
+      background: black;
+    }
+  }
   &.SWIF-btn {
     border-radius: 5px;
     border: solid 2px transparent;
@@ -60,6 +72,23 @@
       align-items: center;
       cursor: pointer;
       padding: 0.35em;
+      &:active {
+        color: white;
+        background: black;
+      }
+    }
+    &.SWIF-inverse {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        &:active {
+          color: black;
+          background: white;
+        }
+      }
     }
   }
 

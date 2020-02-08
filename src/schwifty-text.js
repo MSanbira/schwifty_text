@@ -1,46 +1,26 @@
 import React from "react";
 import "./schwifty-text.scss";
+import SchwiftyTextElements from "./schwifty-text-elements";
+import {
+  containerSizeOptions,
+  containerSpeedOptions,
+  spacialElements
+} from "./schwifty-consts";
 
-const variantOptions = ["h1", "h2", "h3", "h4", "h5", "h6", "p", "img"];
-const containerSizeOptions = {
-  small: "SWIF-s-w",
-  s: "SWIF-s-w",
-  medium: "SWIF-m-w",
-  m: "SWIF-m-w",
-  large: "SWIF-l-w",
-  l: "SWIF-l-w",
-  extraLarge: "SWIF-xl-w",
-  xl: "SWIF-xl-w"
-};
-const containerSpeedOptions = {
-  superFast: "SWIF-s-fast",
-  fast: "SWIF-fast",
-  normal: "SWIF-normal",
-  slow: "SWIF-slow"
-};
-const spacialElements = {
-  btn: "SWIF-btn"
-};
-
-// TODO - btns, divider
+// TODO - btns, divider, design demo
 export default function SchwiftyText(props) {
   const {
     containerSize = "m",
-    text = "",
-    variant = "h1",
     colors,
     className = "",
     style = {},
-    children,
-    textStyle = {},
-    options = {}
+    options = {},
+    onClick
   } = props;
 
   const colorsStyle = {};
   const optionStyle = {};
-  const optionTextStyle = {};
   const classes = ["schwifty-text"];
-  const textElements = [];
 
   classes.push(className);
   classes.push(containerSizeOptions[containerSize] || "SWIF-m-w");
@@ -52,8 +32,7 @@ export default function SchwiftyText(props) {
   }
 
   if (options.inverse) {
-    optionTextStyle.background = "black";
-    optionTextStyle.color = "white";
+    classes.push("SWIF-inverse");
   }
   if (options.speed) {
     classes.push(containerSpeedOptions[options.speed] || "SWIF-normal");
@@ -65,44 +44,13 @@ export default function SchwiftyText(props) {
     classes.push(spacialElements[options.spacialElement] || "");
   }
 
-  if (children) {
-    if (Array.isArray(children)) {
-      for (const child of children) {
-        textElements.push(getElementFromChild(child));
-      }
-    } else if (typeof children === "string") {
-      const ElementType = variantOptions.includes(variant) ? variant : "h1";
-      textElements.push(
-        <ElementType style={{ ...textStyle, ...optionTextStyle }}>
-          {children}
-        </ElementType>
-      );
-    } else {
-      textElements.push(getElementFromChild(children));
-    }
-  } else {
-    const ElementType = variantOptions.includes(variant) ? variant : "h1";
-    textElements.push(
-      <ElementType style={{ ...textStyle, ...optionTextStyle }}>
-        {text}
-      </ElementType>
-    );
-  }
-
   return (
     <div
       className={classes.join(" ")}
       style={{ ...style, ...colorsStyle, ...optionStyle }}
+      onClick={options.noText ? onClick : null}
     >
-      {!options.noText &&
-        (textElements.length === 1 ? textElements[0] : textElements)}
+      {!options.noText && <SchwiftyTextElements textProps={props} />}
     </div>
   );
 }
-
-function getElementFromChild(child) {
-  return variantOptions.includes(child.type) ? child : null;
-}
-
-const randomKey = () =>
-  `${new Date().getTime()}${parseInt(Math.random() * 100)}`;
